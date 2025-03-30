@@ -3,7 +3,6 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const apiRoutes = require('./routes/api'); // Make sure this path is correct
-const imgRoutes = require('./routes/imgApi')
 const { loadModels } = require('./utils/faceUtils');
 
 const app = express();
@@ -15,7 +14,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // API Routes
 app.use('/api', apiRoutes); // This now gets the properly exported router
-app.use('/api', imgRoutes);
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
